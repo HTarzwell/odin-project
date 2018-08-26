@@ -21,14 +21,6 @@ def caesars_cipher(string, shift_num)
             cipher_string << newciph.chr
           end
         end
-      # some crazy math stuff goes here!
-      # subtract ascii A or a position from letter's og position (in this case the c var)
-      # ex: y is 121, a is 97, limits of the a-z category are 97 through 122
-      # 122 is the limit therefore y + 1 yields 122
-      # followed by a + 4, ideally rendering 101, or 'e'
-      # if 122 - c < shift_num
-      # a = (122 - c), b = (shift_num - a), 97 + b equals new shift!
-      # example: a = (122 - 121), b = (5 - 1), 97 + 4 = 101 = e!
       end
       }
     puts cipher_string
