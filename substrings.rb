@@ -1,17 +1,16 @@
-def substrings(newstring)
-  dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-  breakstring = newstring.downcase
-  my_substrings = {}
-  string_count = 0
-  string_value = ''
-  dictionary.each {|x|
-    if breakstring.include?(x)
-      then string_count = breakstring.scan(/#{x}/).length
-        string_value = x
-        my_substrings.store(string_count, string_value)
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+
+def substrings(newstring, dictionary)
+  freq_substrings = Hash.new(0)
+  smallstring = newstring.downcase
+  dictionary.each do |word|
+    if smallstring.include?(word)
+      freq_substrings[word] = smallstring.scan(word).size
     end
-  }
-  puts my_substrings
+  end
+  puts freq_substrings
 end
 
-substrings('Low Go on the horn gO howdy low it go howdy')
+substrings('Low Go on the horn gO howdy low it go howdy down slow', dictionary)
+substrings('Low Go on the horn gO howdy it go howdy down slow', dictionary)
+substrings('you my partner is down', dictionary)
